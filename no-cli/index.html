@@ -5,8 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue.js no cli</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <!-- app -->
+    <div id="app">
+        {{message}}
+    </div>
     
+    <div id="app-2">
+        <span v-bind:title="message">
+            鼠标悬停此处查看信息
+        </span>
+    </div>
+
+    <div id="app-3">
+        <button v-on:click="showMessage=true">show</button>
+        <button v-on:click="showMessage=false">hide</button>
+        <span v-if="showMessage">{{message}}</span>
+    </div>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todoList">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-5">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">reverseMessage</button>
+    </div>
+
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+    </div>
+
+
+    <div id="app-7">  
+        <h3>Vue component</h3>
+        <ol>
+            <!-- <todo-item v-for="todo in todoList"></todo-item> -->
+            <todo-item 
+                v-for="todo in todoList"
+                :todo="todo"
+                :key="todo.id"
+                :id="todo.id"
+            >
+            </todo-item>
+        </ol>
+    </div>
+    
+    <div id="app-8">
+        <p v-once>这个将不会改变: {{message}}</p>
+        <p>
+            使用 v-html：
+            <span v-html="htmlMessage"></span>
+        </p>
+        <p>
+            表达式（三目运算）：
+            <span>{{showMessage ? "this is a message." : "message hiden."}}</span>
+            <br>
+            <button @click="showMessage = !showMessage">toggle showMessage</button>
+        </p>
+    </div>
+
+    <div id="app-9">
+        <h3>计算属性 computed</h3>
+        <p>original text: {{message}}</p>
+        <p>reversed text: {{reverseMessage}}</p>
+        <p>v-model message: <input type="text" v-model="message"></p>
+    </div>
+    
+    <div id="app-10">
+        <h3>绑定 HTML Class v-bind:clss </h3>
+        <p :class="{active: isActive, 'text-danger': hasError}">
+            {{taskList[0].text}} prop-object
+        </p>
+        <p :class="classObject">
+            {{taskList[1].text}} data-classObject
+        </p>
+        <p :class="[activeClass, errorClass]">
+            {{taskList[2].text}}  数组
+        </p>
+        <p :class="getClassObject">
+            {{taskList[2].text}}  computed
+        </p>
+        <p 
+            :style="{'background-color': activeColor, 
+            color: activeFontColor, padding: 15 + 'px'}"
+        >
+            {{taskList[2].text}}  直接v-bind:style
+        </p>
+    </div>
+
+    <div id="app-11">
+        <h3>v-if v-else v-else-if</h3>
+        <p v-if="messageType === 'A'">
+            A: {{message}}
+        </p>
+        <P v-else-if="messageType === 'B'">
+            B: {{message}}
+        </P>
+        <p v-else>
+            Other: {{message}}
+        </p>
+    </div>
+
+    <div id="app-12">
+        <h3>v-for </h3>
+        <ul>
+            <!-- v-for array -->
+            <li v-for="(todo, index) in todoList" :key="todo.id">
+                {{index}}. {{todo.text}}
+            </li>
+        </ul>
+        <ul>
+            <!-- v-for object -->
+            <li v-for="(value, key) in todoObj" :key="key">
+                {{key}}：{{value}}
+            </li>
+        </ul>    
+        <ul>
+            <!-- v-for computed -->
+            <li v-for="(todo, index) in evenTodoList" :key="todo.id">
+                {{index}}. {{todo.text}}
+            </li>
+        </ul>  
+        <ul>
+            <!-- v-for methods -->
+            <li v-for="(todo, index) in oddTodoList(todoList)" :key="todo.id">
+                {{index}}. {{todo.text}}
+            </li>
+        </ul> 
+        <!-- <ul>
+            <li v-for="n in getNum(todoList)">{{n}}</li>
+        </ul> -->
+    </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+.active{
+    background-color: aquamarine;
+    color: #FFF;
+}
+.text-success{
+    color: green;
+}
+.text-danger{
+    color: red;
+}

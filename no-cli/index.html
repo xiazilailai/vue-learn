@@ -145,7 +145,56 @@
         </ul> -->
     </div>
     
+    <div id="app-13">
+        <h3>v-for with component</h3>
+        <ol>
+            <li is="task-item"
+                v-for="(t,index) in items"
+                :key="t.id"
+                :task="t"
+                @remove="items.splice(index, 1)"
+            ></li>
+        </ol>
+        <p>
+            addTask: 
+            <input type="text" v-model="newTaskText"> 
+            <button @click="addTask()">add</button>
+        </p>
+    </div>
 
+    <div id="app-14">
+        <h3>插槽slot 和 局部组件</h3>
+        <ul>
+            <li 
+                is="my-compnent"
+                v-for="(task, index) in tasks" 
+                :task="task"
+                :key="task.id"
+            >
+                <span style="color:red">
+                    *solt 被这里替换{{index}}. {{task.text}}
+                </span>
+                <span slot="named-solt"> 2019/02/17 </span>
+                @copy
+            </li>
+        </ul>
+    </div>
+
+    <div id="app-15">
+        <h3>过渡 transtion</h3>
+        <div>
+            <p><button @click="show = !show">toggleShow</button></p>
+            <transition name="my-fade">
+                <p v-if="show">这是内容 ^_^</p>
+            </transition>
+        </div>
+    </div>
+
+    <div id="app-16">
+        <h3>自定义指令</h3>
+        <p v-print-value="num">这是个自定义指令</p>
+        <p v-print-value="{num: num +1}">这是个自定义指令</p>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="./index.js"></script>

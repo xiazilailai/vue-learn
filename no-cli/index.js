@@ -190,4 +190,81 @@ setTimeout(() => {
     app12.todoObj = Object.assign({}, app12.todoObj, {"Jim": "遛狗"});
 }, 4000);
 
+Vue.component("task-item", {
+    props: ["task"],
+    template: 
+    `<li>
+        {{task.text}} 
+        <button @click="$emit('remove')">delete</button>
+    </li>`
+});
+
+var app13 = new Vue({
+    el: "#app-13",
+    data:{
+        items: [
+            {id: 1,text: "学习Vue"},
+            {id: 2,text: "学习Vue-router"},
+            {id: 3,text: "学习VueX"},
+            {id: 4,text: "睡觉"}
+        ],
+        newTaskText: "",
+        startId: 5
+    },
+    methods: {
+        addTask: function(){
+            this.items.push({
+                text: this.newTaskText,
+                id: this.startId++
+            });
+            this.newTaskText = "";
+        }
+    }
+});
+
+
+var app14 = new Vue({
+    el: "#app-14",
+    components: { // 局部组件
+        "my-compnent": {
+            props: ["task"],
+            template: 
+            `<li>
+                {{task.text}} 
+                <slot></slot>
+                <span style="color: #FF4400;">
+                    <slot name="named-solt"></slot>
+                </span>
+            </li>`
+        }
+    },
+    data: {
+        tasks: [
+            {id: 1,text: "学习Vue"},
+            {id: 2,text: "学习Vue-router"},
+            {id: 3,text: "学习VueX"},
+            {id: 4,text: "睡觉"}
+        ]
+    }
+});
+
+var app15 = new Vue({
+    el: "#app-15",
+    data: {
+        show: true
+    }
+});
+
+Vue.directive("print-value", {
+    inserted: function(el, binding, vnode){
+        console.log("print-value:", binding.value);
+    }
+});
+
+var app16 = new Vue({
+    el: "#app-16",
+    data: {
+        num: 1000
+    }
+});
 

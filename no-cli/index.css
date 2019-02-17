@@ -8,3 +8,19 @@
 .text-danger{
     color: red;
 }
+
+/* transition */
+
+.my-fade-enter-active, 
+.my-fade-leave-active{
+    transition: opacity 0.5s
+}
+
+.my-fade-enter,
+.my-fade-leave-to{
+    opacity: 0;
+}
+
+.my-fade-enter-to{
+    opacity: 1;
+}

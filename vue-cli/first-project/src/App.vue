@@ -3,6 +3,7 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <Nav :navList="navList"/>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <SideNav :navList="navList"/>
     <treeTable :list="tableData"/>
   </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Nav from "./components/Nav.vue"
+import SideNav from "./components/SideNav.vue"
 import TreeTable from "./components/TreeTable.vue"
 
 export default {
@@ -17,6 +19,7 @@ export default {
   components: {
     // HelloWorld,
     Nav,
+    SideNav,
     TreeTable
   },
   data: function(){
@@ -26,7 +29,7 @@ export default {
         {id: 2, text: "Dashboard"},
         {id: 3, text: "TreeTable"},
       ],
-      tableData: []
+      tableData: [1,2,3,4,5,6,7,8]
     };
   }
 }
@@ -36,7 +39,9 @@ export default {
 body{
   padding: 0;
   margin: 0;
-  position: relative;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

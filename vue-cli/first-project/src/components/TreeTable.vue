@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="n in 8" :key="n">
+                <tr v-for="n in list" :key="n">
                     <td>John Potato</td>
                     <td>John Potato ...</td>
                     <td>2019/02/17</td>
@@ -36,8 +36,9 @@ export default {
 <style scoped>
     .tree-table{
         box-sizing: border-box;
-        width: 100%;
-        /* height: 100px; */
+        width: calc(100% - 201px);
+        height: calc(100% - 50px);
+        float: left;
         padding: 15px;
     }
     h3{
@@ -45,6 +46,7 @@ export default {
     }
     table{
         border-collapse: collapse;
+        width: 100%;
     }
     th,td{
         text-align: left;

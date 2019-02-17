@@ -1,5 +1,5 @@
 <template>
-    <div class="nav">
+    <div class="side-nav">
         <ul>
             <li 
                 v-for="(nav, index) in navList" 
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: "Nav",
+    name: "SideNav",
     props: ["navList"],
     data: function(){
         return {
@@ -31,25 +31,31 @@ export default {
 </script>
 
 <style scoped>
-    .nav{
-        height: 50px;
-        padding: 0 15px;        
-        background-color: antiquewhite;
+    .side-nav{
+        width: 200px;
+        height: calc(100% - 80px);
+        float: left;
+        padding: 15px 0;
+        border-right: 1px solid #ddd;
+        /* background-color: beige; */
+        background-color: lightcyan;
     }
+    
     ul{
         padding: 0;
         margin: 0;
         height: 50px;
-        overflow: hidden;
+        /* overflow: hidden; */
         list-style: none;
     }
     li{
-        float: left;
+        /* float: left; */
         height: 50px;
-        width: 120px;
+        width: 200px;
         line-height: 50px;
         text-align: center;
         cursor: pointer;
+        color: aqua;
     }
     li:hover{
         background-color: aquamarine;
@@ -59,6 +65,5 @@ export default {
         color: #FFF;
     }
 </style>
-
 
 

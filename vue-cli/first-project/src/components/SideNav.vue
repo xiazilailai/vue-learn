@@ -19,7 +19,7 @@ export default {
     props: ["navList"],
     data: function(){
         return {
-            activeIndex: 0
+            activeIndex: Number
         };
     },
     methods: {
@@ -36,7 +36,7 @@ export default {
         height: calc(100% - 80px);
         float: left;
         padding: 15px 0;
-        border-right: 1px solid #ddd;
+        /* border-right: 1px solid #ddd; */
         /* background-color: beige; */
         background-color: lightcyan;
     }

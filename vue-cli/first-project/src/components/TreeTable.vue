@@ -8,8 +8,8 @@
                     <th>Description</th>
                     <th>Date</th>
                     <th>Type</th>
+                    <th>HasJack</th>
                     <th>No.</th>
-                    <th>HasError</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,8 +18,8 @@
                     <td>John Potato ...</td>
                     <td>2019/02/17</td>
                     <td>Yellow</td>
-                    <td>20</td>
-                    <td>Y</td>
+                    <td>{{n % 3 === 0 ? "Y12345" : "N54321"}}</td>
+                    <td>20{{n}}</td>
                 </tr>
             </tbody>
         </table>
@@ -36,7 +36,7 @@ export default {
 <style scoped>
     .tree-table{
         box-sizing: border-box;
-        width: calc(100% - 201px);
+        width: calc(100% - 200px);
         height: calc(100% - 50px);
         float: left;
         padding: 15px;

@@ -33,7 +33,7 @@ export default {
 <style scoped>
     .nav{
         height: 50px;
-        padding: 0 15px;        
+        /* padding: 0 15px;         */
         background-color: antiquewhite;
     }
     ul{
@@ -46,7 +46,7 @@ export default {
     li{
         float: left;
         height: 50px;
-        width: 120px;
+        width: 200px;
         line-height: 50px;
         text-align: center;
         cursor: pointer;

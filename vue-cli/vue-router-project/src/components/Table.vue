@@ -19,19 +19,50 @@
                     <td>2019/02/17</td>
                     <td>Yellow</td>
                     <td>{{n % 3 === 0 ? "Y12345" : "N54321"}}</td>
-                    <td>20{{n}}</td>
+                    <td>{{20 + n}}</td>
                 </tr>
             </tbody>
         </table>
+        <button @click="addRow">add</button>
     </div>
 </template>
 
 <script>
+import {mapState,mapGetters,mapActions} from 'vuex'
+
 export default {
     name: "Table",
     data(){
         return {
-            tableData: [1,2,3,4,5,6,7,8]
+            // tableData: [1,2,3,4,5,6,7,8],
+            counter: 9
+        }
+    },
+    computed: {
+        // 下面写法结果都一样  
+        // ...mapState({
+        //     tableData: state => state.tableData.tableData
+        // }),
+        // ...mapState("tableData",{
+        //     tableData: state => state.tableData
+        // }),
+        // ...mapGetters("tableData", {
+        //     tableData: "getTableData"
+        // }),
+        tableData: function(){           
+            return this.$store.getters["tableData/getTableData"];
+        }
+    },
+    methods: {
+        // 下面写法结果都一样  
+        // ...mapActions({
+        //     "addRow" : "tableData/addTableRow"
+        // }),
+        // ...mapActions("tableData", {
+        //     "addRow" : "addTableRow"
+        // }),
+        addRow: function(){
+            this.$store.dispatch("tableData/addTableRow");
         }
     }
 }

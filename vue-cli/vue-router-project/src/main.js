@@ -8,6 +8,7 @@ import './assets/bootstrap/js/bootstrap.min'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from "./store/store" // 如果store文件夹下入口文件为index.js 那么可以简写为 import store from "./store"
 
 Vue.config.productionTip = false
 
@@ -15,6 +16,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

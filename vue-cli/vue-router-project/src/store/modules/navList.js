@@ -1,11 +1,4 @@
-import Vue from "vue";
-import Vuex from "vuex";
-// import navList from "./modules/navList"
-import tableData from "./modules/tableData"
-
-Vue.use(Vuex);
-
-// 直接在store里初始化state getters mutations actions
+// 
 const state = {
     navList: [
         {name: "Home"},
@@ -40,14 +33,10 @@ const actions = {
     }
 };
 
-const store = new Vuex.Store({
+export default {
+    namespaced: true,
     state,
     getters,
     mutations,
-    actions,
-    modules: {
-        tableData
-    }
-});
-
-export default store;
+    actions
+}

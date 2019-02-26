@@ -23,13 +23,18 @@ export default {
     name: "HeaderNav",
     data () {
         return {
-            navList: [
-                {name: "Home"},
-                {name: "Dashboard"},
-                {name: "Form"},
-                {name: "Table"},
-                {name: "Button"}
-            ]
+            // navList: [
+            //     {name: "Home"},
+            //     {name: "Dashboard"},
+            //     {name: "Form"},
+            //     {name: "Table"},
+            //     {name: "Button"}
+            // ]
+        }
+    },
+    computed: {
+        navList: function(){
+            return this.$store.getters.getNavList;
         }
     }
 }

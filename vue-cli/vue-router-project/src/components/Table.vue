@@ -23,7 +23,9 @@
                 </tr>
             </tbody>
         </table>
-        <button @click="addRow">add</button>
+        <div class="btn-bar">
+            <button class="btn btn-sm btn-default" @click="addRow">add row</button>
+        </div>
     </div>
 </template>
 
@@ -80,6 +82,13 @@ export default {
         text-align: left;
         padding: 7px;
         border: 1px solid #ddd;
+    }
+    .btn-bar{
+        padding: 15px 0;
+        /* text-align: right; */
+    }
+    .btn-bar .btn{
+        width: 80px;
     }
 </style>
 
